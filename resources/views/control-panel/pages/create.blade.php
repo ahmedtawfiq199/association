@@ -41,6 +41,33 @@
                             </div>
                         </div>
                         {{-- end project title --}}
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="form-group fallback w-100">
+                                <div class="form-group">
+                                    <label for="menu_id" class="form-label">{{ __('Menu Name') }}</label>
+
+                                    <select name="menu_id" id="menu_id" class="form-control">
+                                        <option value="">Choose Main Menu</option>
+                                        @foreach ($menus as $menu)
+                                            <option @if($menu->id == old('menu_id')) selected  @endif value="{{ $menu->id }}">{{ $menu->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+{{--                        @if(\App\Models\Menu::has)--}}
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="form-group fallback w-100">
+                                <div class="form-group">
+                                    <label for="sub_menus_id" class="form-label">{{ __('SubMenu Name') }}</label>
+                                    <select id="subMenu_id" name="subMenu_id"  class="form-control">
+                                        <option value="">Select SubMenu </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
 
                         {{-- project title --}}
                         <div class="col-lg-12 col-md-12 col-sm-12">
@@ -103,3 +130,4 @@
 </div>
 
 @endsection
+

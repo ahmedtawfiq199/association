@@ -10,7 +10,7 @@ class Page extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'sub_title', 'main_image', 'description',
+        'title', 'sub_title', 'main_image', 'description','sub_menus_id','menu_id'
     ];
 
     public function images()

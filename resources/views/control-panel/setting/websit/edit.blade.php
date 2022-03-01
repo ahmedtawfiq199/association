@@ -52,6 +52,13 @@
 										</div>
                                         {{-- end website email --}}
 
+                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="url" class="form-label">{{ __('Website URL') }}</label>
+                                                <input type="text" id="url" name="url" value="{{ old('url',($website->url ?? config('appInformation.url'))) }}" class="form-control" required>
+                                            </div>
+                                        </div>
+
                                         {{-- website telephone --}}
                                         <div class="col-lg-12 col-md-12 col-sm-12">
 											<div class="form-group">

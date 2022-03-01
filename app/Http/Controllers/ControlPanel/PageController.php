@@ -5,8 +5,10 @@ namespace App\Http\Controllers\ControlPanel;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePageRequest;
 use App\Http\Requests\UpdatePageRequest;
+use App\Models\Menu;
 use App\Models\Page;
 use App\Models\PageTag;
+use App\Models\SubMenu;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -35,7 +37,10 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view('control-panel.pages.create');
+        $menus = Menu::all();
+
+//        dd(Menu::has('subMenus')->get());
+        return view('control-panel.pages.create',['menus'=>$menus]);
     }
 
     /**
@@ -50,7 +55,7 @@ class PageController extends Controller
 
         $image = null;
 
-
+//        dd($data);
         DB::beginTransaction();
 
         try
@@ -81,8 +86,8 @@ class PageController extends Controller
 
         }catch (Throwable $e) {
             DB::rollBack();
-            return redirect()->route('pages.index')
-                ->with('error', 'Operation failed');
+
+            return $e;
         }
 
         return redirect()->route('pages.index')->with('success' ,'Page '.$page->name.' Created Done!');
@@ -220,5 +225,15 @@ class PageController extends Controller
             }
         }
 
+    }
+
+    public function getSubMenus($subid=0){
+        $subMenu = SubMenu::where('menu_id',$subid)->get();
+//        dd($subMenu);
+//        $a = "";
+//        foreach($subMenu as $s){
+//            $a.="<option value='".$s->id."'>".$s->name."</option>";
+//        }
+        return response()->json($subMenu);
     }
 }

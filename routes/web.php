@@ -75,13 +75,18 @@ Route::middleware('auth')
             Route::resource('photo-album',PhotoAlbumController::class);
             Route::put('photo-album/{photo_album}/photos',[PhotoAlbumController::class,'updatePhotos'])->name('photo-album.updatePhotos');
             Route::resource('vedio-album',VedioAlbumController::class);
-            
+
             Route::get('plans/{service}',[PlanController::class,'show'])->name('plans.show');
             Route::get('plans/create/{service}',[PlanController::class,'create'])->name('plans.create');
             Route::post('plans/create',[PlanController::class,'store'])->name('plans.store');
             Route::get('plans/{plan}/edit',[PlanController::class,'edit'])->name('plans.edit');
             Route::put('plans/{plan}/edit',[PlanController::class,'update'])->name('plans.update');
             Route::delete('plans/{plan}',[PlanController::class,'destroy'])->name('plans.destroy');
+
+            Route::resource('menus', \App\Http\Controllers\MenuController::class);
+            Route::resource('sub-menus', \App\Http\Controllers\ControlPanel\SubMenuController::class);
+
+            Route::get('sub-menu/ajax/{id}',[PageController::class,'getSubMenus'])->name('subMenu.ajax');   
         });
 
 
