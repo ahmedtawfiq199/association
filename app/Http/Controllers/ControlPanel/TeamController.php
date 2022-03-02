@@ -56,7 +56,7 @@ class TeamController extends Controller
 
         $team = Team::create($data);
 
-        return redirect()->route('teams.index')->with('success','Team Member '.$team->name.' Created Done!');
+        return redirect()->route('teams.index')->with('success',__('Team Member ').$team->name.__(' Created Done!'));
     }
 
     /**
@@ -105,7 +105,7 @@ class TeamController extends Controller
 
         $team->update($data);
 
-        return redirect()->route('teams.index')->with('success','Team Member Updated Done!');
+        return redirect()->route('teams.index')->with('success',__('Team Member Updated Done!'));
     }
 
     /**
@@ -118,6 +118,6 @@ class TeamController extends Controller
     {
         $team->delete();
         Storage::disk('public')->delete($team->image);
-        return redirect()->route('teams.index')->with('success','Team Member Deleted Done!');
+        return redirect()->route('teams.index')->with('success',__('Team Member Deleted Done!'));
     }
 }

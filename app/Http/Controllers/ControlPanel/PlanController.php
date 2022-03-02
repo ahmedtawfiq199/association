@@ -50,7 +50,7 @@ class PlanController extends Controller
         }
 
         return redirect()->route('plans.show',$plan->sub_service_id)
-                        ->with('success','Plan created successfully');
+                        ->with('success',__('Plan created successfully'));
     }
 
     public function edit(Plan $plan)
@@ -84,7 +84,7 @@ class PlanController extends Controller
         }
 
         return redirect()->route('plans.show',$plan->sub_service_id)
-                        ->with('success','Plan updated successfully');
+                        ->with('success',__('Plan updated successfully'));
     }
 
     public function destroy(Plan $plan)
@@ -92,6 +92,6 @@ class PlanController extends Controller
         # code...
         $plan->delete();
         return redirect()->route('plans.show',$plan->sub_service_id)
-                        ->with('success','Plan deleted successfully');
+                        ->with('success',__('Plan deleted successfully'));
     }
 }

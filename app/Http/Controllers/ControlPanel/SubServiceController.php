@@ -55,7 +55,7 @@ class SubServiceController extends Controller
 
         $service = SubService::create($data);
 
-        return redirect()->route('subservices.index')->with('success','Sub Service '. $service->name .' Created Done!');
+        return redirect()->route('subservices.index')->with('success',__('Sub Service '). $service->name .__(' Created Done!'));
 
     }
 
@@ -109,7 +109,7 @@ class SubServiceController extends Controller
 
         $sub_service->update($data);
 
-        return redirect()->route('subservices.index')->with('success','Sub Service Updated Done!');
+        return redirect()->route('subservices.index')->with('success',__('Sub Service Updated Done!'));
     }
 
     /**
@@ -123,6 +123,6 @@ class SubServiceController extends Controller
         $sub_service = SubService::findOrFail($id);
         $sub_service->delete();
         Storage::disk('public')->delete($sub_service->image);
-        return redirect()->route('subservices.index')->with('success','Service Deleted Done!');
+        return redirect()->route('subservices.index')->with('success',__('Sub Service Deleted Done!'));
     }
 }

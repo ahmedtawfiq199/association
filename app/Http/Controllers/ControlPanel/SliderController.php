@@ -56,7 +56,7 @@ class SliderController extends Controller
 
         $slider = Slider::create($data);
 
-        return redirect()->route('sliders.index')->with('success','Slider '. $slider->title .' Created Done!');
+        return redirect()->route('sliders.index')->with('success',__('Slider '). $slider->title .__(' Created Done!'));
     }
 
     /**
@@ -94,7 +94,7 @@ class SliderController extends Controller
 
         $slider->update($data);
 
-        return redirect()->route('sliders.index')->with('success','Slider Updated Done!');
+        return redirect()->route('sliders.index')->with('success',__('Slider Updated Done!'));
     }
 
     /**
@@ -107,6 +107,6 @@ class SliderController extends Controller
     {
         $slider->delete();
         Storage::disk('public')->delete($slider->image);
-        return redirect()->route('sliders.index')->with('success','Slider Deleted Done!');
+        return redirect()->route('sliders.index')->with('success',__('Slider Deleted Done!'));
     }
 }

@@ -29,7 +29,7 @@ class SubMenuController extends Controller
         ]);
 //        dd();
         SubMenu::create($request->all());
-        return redirect()->route('sub-menus.index')->with('success','Menu Updated Successfully!');
+        return redirect()->route('sub-menus.index')->with('success',__('Sub Menu Created Successfully!'));
 
     }
 
@@ -53,7 +53,7 @@ class SubMenuController extends Controller
         ]);
         dd($request->all());
         $sub->update($request->all());
-        return redirect()->route('sub-menus.index')->with('success','Menu Updated Successfully!');
+        return redirect()->route('sub-menus.index')->with('success',__('Sub Menu Updated Successfully!'));
 
     }
 
@@ -66,7 +66,7 @@ class SubMenuController extends Controller
     public function destroy($id)
     {
 
-        return redirect()->route('sub-menus.index')->with('success','Menu Updated Successfully!');
+        return redirect()->route('sub-menus.index')->with('success',__('Sub Menu Deleted Successfully!'));
 
         //
     }

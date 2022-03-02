@@ -90,7 +90,7 @@ class PageController extends Controller
             return $e;
         }
 
-        return redirect()->route('pages.index')->with('success' ,'Page '.$page->name.' Created Done!');
+        return redirect()->route('pages.index')->with('success' ,__('Page ').$page->name.__(' Created Done!'));
     }
 
     /**
@@ -181,7 +181,7 @@ class PageController extends Controller
                 ->with('error', 'Operation failed');
         }
 
-            return redirect()->route('pages.index')->with('success' ,'Page '.$page->name.' Updated Done!');
+            return redirect()->route('pages.index')->with('success' ,__('Page ').$page->name.__(' Updated Done!'));
 
     }
 
@@ -201,7 +201,7 @@ class PageController extends Controller
 
         Storage::disk('public')->delete($page->main_image);
         $page->delete();
-        return redirect()->route('pages.index')->with('success','Page Deleted Done!');
+        return redirect()->route('pages.index')->with('success',__('Page Deleted Done!'));
     }
 
     protected function insertTags($tags, $page)

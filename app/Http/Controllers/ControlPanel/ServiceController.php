@@ -54,7 +54,7 @@ class ServiceController extends Controller
 
         $service = Service::create($data);
 
-        return redirect()->route('services.index')->with('success','Service '. $service->name .' Created Done!');
+        return redirect()->route('services.index')->with('success',__('Service '). $service->name .__(' Created Done!'));
     }
 
 
@@ -95,7 +95,7 @@ class ServiceController extends Controller
 
         $service->update($data);
 
-        return redirect()->route('services.index')->with('success','Service Updated Done!');
+        return redirect()->route('services.index')->with('success',__('Service Updated Done!'));
     }
 
     /**
@@ -108,6 +108,6 @@ class ServiceController extends Controller
     {
         $service->delete();
         Storage::disk('public')->delete($service->image);
-        return redirect()->route('services.index')->with('success','Service Deleted Done!');
+        return redirect()->route('services.index')->with('success',__('Service Deleted Done!'));
     }
 }

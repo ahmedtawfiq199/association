@@ -79,7 +79,7 @@ class ProjectController extends Controller
                 ->with('error', 'Operation failed');
         }
 
-        return redirect()->route('projects.index')->with('success' ,'Project '.$project->name.' Created Done!');
+        return redirect()->route('projects.index')->with('success' ,__('Project ').$project->name.__(' Created Done!'));
     }
 
     /**
@@ -163,7 +163,7 @@ class ProjectController extends Controller
                 ->with('error', 'Operation failed');
         }
 
-            return redirect()->route('projects.index')->with('success' ,'Project '.$project->name.' Updated Done!');
+            return redirect()->route('projects.index')->with('success' ,__('Project ').$project->name.__(' Updated Done!'));
 
         }
 
@@ -183,6 +183,6 @@ class ProjectController extends Controller
 
         Storage::disk('public')->delete($project->main_image);
         $project->delete();
-        return redirect()->route('projects.index')->with('success','Project Deleted Done!');
+        return redirect()->route('projects.index')->with('success',__('Project Deleted Done!'));
     }
 }

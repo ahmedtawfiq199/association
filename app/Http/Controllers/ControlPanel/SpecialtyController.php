@@ -82,7 +82,7 @@ class SpecialtyController extends Controller
             return $e;
         }
 
-        return redirect()->route('specialties.index')->with('success' ,'Specialty '.$specialty->name.' Created Done!');
+        return redirect()->route('specialties.index')->with('success' ,__('Specialty ').$specialty->title.__(' Created Done!'));
 
     }
 
@@ -123,6 +123,8 @@ class SpecialtyController extends Controller
     {
 
         $data = $request->validated();
+
+        //dd($data['description']);
 
         $image = $specialty->image;
 
@@ -169,7 +171,7 @@ class SpecialtyController extends Controller
                 ->with('error', 'Operation failed');
         }
 
-            return redirect()->route('specialties.index')->with('success' ,'Specialty '.$specialty->name.' Updated Done!');
+            return redirect()->route('specialties.index')->with('success' ,__('Specialty ').$specialty->title.__(' Updated Done!'));
 
 
     }
@@ -189,6 +191,6 @@ class SpecialtyController extends Controller
         }
         Storage::disk('public')->delete($specialty->image);
         $specialty->delete();
-        return redirect()->route('specialties.index')->with('success','Specialty Deleted Done!');
+        return redirect()->route('specialties.index')->with('success',__('Specialty Deleted Done!'));
     }
 }

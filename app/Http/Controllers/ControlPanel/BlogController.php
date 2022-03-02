@@ -84,7 +84,7 @@ class BlogController extends Controller
                 ->with('error', 'Operation failed');
         }
 
-        return redirect()->route('blogs.index')->with('success' ,'Blog '.$blog->name.' Created Done!');
+        return redirect()->route('blogs.index')->with('success' ,__('Blog ').$blog->name.__(' Created Done!'));
 
     }
 
@@ -176,7 +176,7 @@ class BlogController extends Controller
                 ->with('error', 'Operation failed');
         }
 
-            return redirect()->route('blogs.index')->with('success' ,'Page '.$blog->name.' Updated Done!');
+            return redirect()->route('blogs.index')->with('success' ,__('Blog ').$blog->name.__(' Updated Done!'));
 
 
     }
@@ -197,7 +197,7 @@ class BlogController extends Controller
 
         Storage::disk('public')->delete($blog->main_image);
         $blog->delete();
-        return redirect()->route('blogs.index')->with('success','Page Deleted Done!');
+        return redirect()->route('blogs.index')->with('success',__('Blog Deleted Done!'));
     }
 
     protected function insertTags($tags, $blog)

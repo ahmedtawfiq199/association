@@ -30,6 +30,6 @@ class ContactController extends Controller
     {
         # code...
         $contact->delete();
-        return redirect()->route('contacts.index')->with('success','Message Deleted Successfully!');
+        return redirect()->route('contacts.index')->with('success',__('Message Deleted Successfully!'));
     }
 }

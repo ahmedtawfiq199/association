@@ -57,7 +57,7 @@ class PhotoAlbumController extends Controller
         $album = PhotoAlbum::create($data);
 
 
-        return redirect()->route('photo-album.index')->with('success','Album Created Successfully');
+        return redirect()->route('photo-album.index')->with('success',__('Album Created Successfully'));
     }
 
     /**
@@ -108,7 +108,7 @@ class PhotoAlbumController extends Controller
 
         $photo_album->update($data);
 
-        return redirect()->route('photo-album.index')->with('success','Album Updated Successfully');
+        return redirect()->route('photo-album.index')->with('success',__('Album Updated Successfully'));
 
     }
 
@@ -129,7 +129,7 @@ class PhotoAlbumController extends Controller
 
         Storage::disk('public')->delete($photo_album->image);
         $photo_album->delete();
-        return redirect()->route('photo-album.index')->with('success','Album Deleted Successfully');
+        return redirect()->route('photo-album.index')->with('success',__('Album Deleted Successfully'));
 
     }
 
@@ -160,7 +160,7 @@ class PhotoAlbumController extends Controller
             }
         }
 
-        return redirect()->route('photo-album.show',$photo_album->id)->with('success','Album Updated Successfully');
+        return redirect()->route('photo-album.show',$photo_album->id)->with('success',__('Album Updated Successfully'));
 
     }
 }

@@ -119,7 +119,7 @@ class WebsitController extends Controller
 
         return redirect()->route('setting-website-edit',[
             'website' => $webSetting
-        ])->with('success','Update Done!');
+        ])->with('success',__('Update Done!'));
 
     }
 }

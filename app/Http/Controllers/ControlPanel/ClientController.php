@@ -55,7 +55,7 @@ class ClientController extends Controller
 
         $client = Client::create($data);
 
-        return redirect()->route('clients.index')->with('success','Client '.$client->name.' Created Done!');
+        return redirect()->route('clients.index')->with('success',__('Client ').$client->name.__(' Created Done!'));
 
     }
 
@@ -97,7 +97,7 @@ class ClientController extends Controller
 
         $client->update($data);
 
-        return redirect()->route('clients.index')->with('success','Client Updated Done!');
+        return redirect()->route('clients.index')->with('success',__('Client Updated Done!'));
     }
 
     /**
@@ -110,6 +110,6 @@ class ClientController extends Controller
     {
         $client->delete();
         Storage::disk('public')->delete($client->image);
-        return redirect()->route('clients.index')->with('success','Client Deleted Done!');
+        return redirect()->route('clients.index')->with('success',__('Client Deleted Done!'));
     }
 }

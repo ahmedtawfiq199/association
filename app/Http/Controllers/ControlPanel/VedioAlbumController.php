@@ -43,7 +43,7 @@ class VedioAlbumController extends Controller
     {
         $album = VedioAlbum::create($request->validated());
 
-        return redirect()->route('vedio-album.index')->with('success','Album '. $album->name .'Created Successfully');
+        return redirect()->route('vedio-album.index')->with('success',__('Album '). $album->name .__(' Created Successfully'));
     }
 
     /**
@@ -81,7 +81,7 @@ class VedioAlbumController extends Controller
     {
         $vedio_album->update($request->validated());
 
-        return redirect()->route('vedio-album.index')->with('success','Album '.$vedio_album->name.' Updated Successfully');
+        return redirect()->route('vedio-album.index')->with('success',__('Album ').$vedio_album->name.__(' Updated Successfully'));
     }
 
     /**
@@ -94,7 +94,7 @@ class VedioAlbumController extends Controller
     {
         //
         $vedio_album->delete();
-        return redirect()->route('vedio-album.index')->with('success','Album Deleted Successfully');
+        return redirect()->route('vedio-album.index')->with('success',__('Album Deleted Successfully'));
 
     }
 }

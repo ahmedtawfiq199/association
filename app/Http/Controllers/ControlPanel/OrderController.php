@@ -36,14 +36,14 @@ class OrderController extends Controller
 
         $order->update($request->all());
 
-        return redirect()->route('orders.index')->with('success','Order Status Or Notification Updated Done!');;
+        return redirect()->route('orders.index')->with('success',__('Order Status Or Notification Updated Done!'));;
     }
 
     public function destroy(Order $order)
     {
         # code...
         $order->delete();
-        return redirect()->route('orders.index')->with('success','Order Deleted Done!');
+        return redirect()->route('orders.index')->with('success',__('Order Deleted Done!'));
 
     }
 }

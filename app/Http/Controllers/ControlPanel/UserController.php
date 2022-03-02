@@ -56,7 +56,7 @@ class UserController extends Controller
         event(new Registered($user));
 
 
-        return redirect()->route('all-users')->with('success','User '. $user->name .' Created!');
+        return redirect()->route('all-users')->with('success',__('User '). $user->name .__(' Created!'));
     }
 
 
@@ -104,7 +104,7 @@ class UserController extends Controller
             ]);
         }
 
-        return redirect()->route('all-users')->with('success','User '. $user->name .' Updated!');
+        return redirect()->route('all-users')->with('success',__('User '). $user->name .__(' Updated!'));
     }
 
 
@@ -118,7 +118,7 @@ class UserController extends Controller
     public function destroy(Request $request){
         $user = User::findOrFail($request->id);
         $user->delete();
-        return redirect()->route('all-users')->with('success','User deleted!');
+        return redirect()->route('all-users')->with('success',__('User deleted!'));
     }
 
 
