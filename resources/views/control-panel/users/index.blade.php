@@ -1,5 +1,12 @@
 @extends('layouts.control-panel')
 
+@section('css')
+    <link href="{{ asset('assets/control-panel/vendor/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/control-panel/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
+
+@stop
+
+
 @section('content')
 
 <div class="row page-titles mx-0">
@@ -38,7 +45,7 @@
                             {{-- end alert componant --}}
 
                             {{-- table for display users --}}
-                            <table id="example3" class="display" style="min-width: 845px">
+                            <table id="example3" class="display user-list-table" style="min-width: 845px">
                                 <thead>
                                     <tr>
                                         <th>{{ __('Name') }}</th>
@@ -48,28 +55,28 @@
                                         <th>{{ __('Action') }}</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    {{-- get users from database --}}
-                                    @foreach ($users as $user)
-                                        <tr>
-                                            <td>{{ $user->name }}</td>
-                                            <td>{{ $user->email }}</td>
-                                            <td>{{ $user->role }}</td>
-                                            <td>{{ $user->phone }}</td>
-                                            <td style="padding-top: 10px;">
-                                                <form method="post" id="deleteuserform" action="{{route('delete-users')}}">
-                                                    @method('delete')
-                                                    @csrf
-                                                    <input type="hidden" name="id" value="{{ $user->id }}">
-                                                    <a href="{{ route('edit-users', $user->id) }}" class="btn btn-sm btn-primary"><i class="la la-pencil"></i></a>
-                                                   @if(!(Auth::user()->id == $user->id))
-                                                   <button onclick="if (confirm('Want to delete?')) { return true; }else{ return false; }" class="btn btn-sm btn-danger"><i class="la la-trash-o"></i></button>
-                                                   @endif
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
+{{--                                <tbody>--}}
+{{--                                    --}}{{-- get users from database --}}
+{{--                                    @foreach ($users as $user)--}}
+{{--                                        <tr>--}}
+{{--                                            <td>{{ $user->name }}</td>--}}
+{{--                                            <td>{{ $user->email }}</td>--}}
+{{--                                            <td>{{ $user->role }}</td>--}}
+{{--                                            <td>{{ $user->phone }}</td>--}}
+{{--                                            <td style="padding-top: 10px;">--}}
+{{--                                                <form method="post" id="deleteuserform" action="{{route('delete-users')}}">--}}
+{{--                                                    @method('delete')--}}
+{{--                                                    @csrf--}}
+{{--                                                    <input type="hidden" name="id" value="{{ $user->id }}">--}}
+{{--                                                    <a href="{{ route('edit-users', $user->id) }}" class="btn btn-sm btn-primary"><i class="la la-pencil"></i></a>--}}
+{{--                                                   @if(!(Auth::user()->id == $user->id))--}}
+{{--                                                   <button onclick="if (confirm('Want to delete?')) { return true; }else{ return false; }" class="btn btn-sm btn-danger"><i class="la la-trash-o"></i></button>--}}
+{{--                                                   @endif--}}
+{{--                                                </form>--}}
+{{--                                            </td>--}}
+{{--                                        </tr>--}}
+{{--                                    @endforeach--}}
+{{--                                </tbody>--}}
                             </table>
                             {{-- end table --}}
                         </div>
@@ -121,3 +128,10 @@
 </div>
 
 @endsection
+
+@section('js')
+    <script src="{{ asset('assets/control-panel/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+{{--    <script src="{{ asset('assets/control-panel/js/plugins-init/datatables.init.js') }}"></script>--}}
+    <script src="{{ asset('assets/control-panel/js/datatables.js') }}"></script>
+
+@stop

@@ -1,12 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\ControlPanel;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\MenuRequest;
 use App\Models\Menu;
 use App\Models\SubMenu;
 use App\Models\Websit;
 use Illuminate\Http\Request;
+use function dd;
+use function redirect;
+use function validator;
+use function view;
 
 class MenuController extends Controller
 {
