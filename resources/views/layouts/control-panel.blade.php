@@ -188,6 +188,20 @@
                     </li>
 
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="la la-user"></i>
+                            <span class="nav-text">{{ __('Specialty') }}</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            {{-- this element to view all clients page --}}
+                            <li><a href="{{ route('specialties.index') }}">{{ __('All Specialties') }}</a></li>
+
+                            {{-- this element to view create clients page --}}
+                            <li><a href="{{ route('specialties.create') }}">{{ __('Create Specialties') }}</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="la la-building"></i>
                             <span class="nav-text">{{ __('Services') }}</span>
                         </a>

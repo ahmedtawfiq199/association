@@ -177,7 +177,7 @@ class PageController extends Controller
 
         }catch (Throwable $e) {
             DB::rollBack();
-            return redirect()->route('projects.index')
+            return redirect()->route('pages.index')
                 ->with('error', 'Operation failed');
         }
 

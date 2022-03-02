@@ -13,6 +13,7 @@ use App\Http\Controllers\ControlPanel\SubServiceController;
 use App\Http\Controllers\ControlPanel\TeamController;
 use App\Http\Controllers\ControlPanel\UserController;
 use App\Http\Controllers\ControlPanel\SliderController;
+use App\Http\Controllers\ControlPanel\SpecialtyController;
 use App\Http\Controllers\ControlPanel\VedioAlbumController;
 use App\Http\Controllers\ControlPanel\WebsitController;
 use App\Http\Controllers\Front\ContactController;
@@ -72,6 +73,8 @@ Route::middleware('auth')
             Route::delete('contacts/{contact}',[ControlPanelContactController::class,'destroy'])->name('contacts.destroy');
             Route::resource('sliders', SliderController::class);
 
+            Route::resource('specialties',SpecialtyController::class);
+
             Route::resource('photo-album',PhotoAlbumController::class);
             Route::put('photo-album/{photo_album}/photos',[PhotoAlbumController::class,'updatePhotos'])->name('photo-album.updatePhotos');
             Route::resource('vedio-album',VedioAlbumController::class);
@@ -86,7 +89,7 @@ Route::middleware('auth')
             Route::resource('menus', \App\Http\Controllers\MenuController::class);
             Route::resource('sub-menus', \App\Http\Controllers\ControlPanel\SubMenuController::class);
 
-            Route::get('sub-menu/ajax/{id}',[PageController::class,'getSubMenus'])->name('subMenu.ajax');   
+            Route::get('sub-menu/ajax/{id}',[PageController::class,'getSubMenus'])->name('subMenu.ajax');
         });
 
 
